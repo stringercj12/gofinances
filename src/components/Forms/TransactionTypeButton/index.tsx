@@ -28,7 +28,11 @@ export function TransactionTypeButton({ type, title, isActive, ...rest }: Props)
         name={icons[type]}
         type={type}
       />
-      <Title>{title}</Title>
+      <Title
+        isActive={isActive}
+      >
+        {title}
+      </Title>
     </Container>
   );
 }
