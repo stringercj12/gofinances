@@ -68,6 +68,5 @@ export const LastTransaction = styled.Text<TypeProps>`
 
   color: ${({ theme, type }) =>
     type === 'total' ? theme.colors.shape : theme.colors.text_dark};
-
 `;
 
