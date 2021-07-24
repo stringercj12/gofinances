@@ -14,6 +14,8 @@ import theme from './src/global/styles/theme';
 
 import { AppRoutes } from './src/routes/app.routes';
 import { SignIn } from './src/screens/SingnIn';
+import { AuthProvider } from './src/hooks/auth';
+
 
 export default function App() {
   const [fonstLoaded] = useFonts({
@@ -33,7 +35,10 @@ export default function App() {
           barStyle="light-content"
         />
         {/* <AppRoutes /> */}
-        <SignIn />
+
+        <AuthProvider>
+          <SignIn />
+        </AuthProvider>
       </NavigationContainer>
     </ThemeProvider>
   );
