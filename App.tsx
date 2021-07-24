@@ -13,6 +13,7 @@ import AppLoading from 'expo-app-loading';
 import theme from './src/global/styles/theme';
 
 import { AppRoutes } from './src/routes/app.routes';
+import { SignIn } from './src/screens/SingnIn';
 
 export default function App() {
   const [fonstLoaded] = useFonts({
@@ -31,7 +32,8 @@ export default function App() {
         <StatusBar
           barStyle="light-content"
         />
-        <AppRoutes />
+        {/* <AppRoutes /> */}
+        <SignIn />
       </NavigationContainer>
     </ThemeProvider>
   );
