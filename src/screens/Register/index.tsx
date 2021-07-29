@@ -29,6 +29,7 @@ import {
 import { InputForm } from '../../components/Forms/InputForm';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useNavigation } from '@react-navigation/native';
+import { useAuth } from '../../hooks/auth';
 
 interface FormData {
   name: string;
@@ -50,7 +51,9 @@ export function Register() {
   const [transactionType, setTransactionType] = useState('');
   const [categoryModalOpen, setCategoryModalOpen] = useState(false);
 
-  const dataKey = '@gofinances:transactions';
+  const { user } = useAuth();
+
+  const dataKey = `@gofinances:transactions_user:${user.id}`;
 
   const navigation = useNavigation();
 

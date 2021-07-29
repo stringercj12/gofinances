@@ -14,7 +14,8 @@ import theme from './src/global/styles/theme';
 
 import { AppRoutes } from './src/routes/app.routes';
 import { SignIn } from './src/screens/SingnIn';
-import { AuthProvider } from './src/hooks/auth';
+import { AuthProvider, useAuth } from './src/hooks/auth';
+import { Routes } from './src/routes';
 
 
 export default function App() {
@@ -24,22 +25,18 @@ export default function App() {
     Poppins_700Bold
   });
 
+  const { userStorageLoading } = useAuth();
 
-  if (!fonstLoaded) {
+
+  if (!fonstLoaded || userStorageLoading) {
     return <AppLoading />
   }
   return (
     <ThemeProvider theme={theme}>
-      <NavigationContainer>
-        <StatusBar
-          barStyle="light-content"
-        />
-        {/* <AppRoutes /> */}
-
-        <AuthProvider>
-          <SignIn />
-        </AuthProvider>
-      </NavigationContainer>
+      <StatusBar barStyle="light-content" />
+      <AuthProvider>
+        <Routes />
+      </AuthProvider>
     </ThemeProvider>
   );
 }
