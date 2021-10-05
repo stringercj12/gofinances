@@ -53,8 +53,8 @@ export function Register() {
 
   const { user } = useAuth();
 
-  const dataKey = `@gofinances:transactions_user:${user.id}`;
-
+  const dataKey = `@gofinances:transactions_user:${user?.id}`;
+  // const dataKey = "";
   const navigation = useNavigation();
 
   const [category, setCategory] = useState({
@@ -172,6 +172,7 @@ export function Register() {
 
             <CategorySelectButton
               title={category.name}
+              testID="button-category"
               onPress={handleOpenSelectCategoryModal}
             />
           </Fields>
@@ -182,7 +183,10 @@ export function Register() {
           />
         </Form>
 
-        <Modal visible={categoryModalOpen}>
+        <Modal
+          testID="modal-category"
+          visible={categoryModalOpen}
+        >
           <CategorySelect
             category={category}
             setCategory={setCategory}
